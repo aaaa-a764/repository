@@ -1,5 +1,6 @@
 import numpy as np
 import numpy.linalg as LA
+import matplotlib.pyplot as plt
 
 
 def PCA(x, y):
@@ -56,3 +57,16 @@ print("式：-0.4185(x1-5.2)+0.8114(x2-5.6)+0.4079(x3-5.5)")
 print("寄与率:" + str(result3[1]))
 print("累積寄与率" + str(result3[2]))
 print()
+
+
+def plot_pca_result(z):
+    plt.scatter(z[:, 0], z[:, 1])
+    plt.xlabel("PC1")
+    plt.ylabel("PC2")
+    plt.title("PCA Result")
+    plt.grid(True)
+    plt.show()
+
+
+z = np.column_stack((result1[0], result2[0]))
+plot_pca_result(z)
